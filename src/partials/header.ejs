@@ -1,0 +1,33 @@
+!<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Off the Record</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/index.scss" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/header.scss" />
+  <script src="main.js"></script>
+</head>
+
+<body>
+<div class="main-nav">
+  <ul class="links-cont">
+    <li>Reviews</li>
+    <li>Profile</li>
+    <li>New Review</li>
+  </ul>
+  <h1>Off the Record</h1>
+  <form 
+    class="search-cont" 
+    action="/search/<%=search.text%>" 
+    method="GET">
+    <input 
+      placeholder="Search by author or article..." 
+      type="text"
+      value="<%=search.text %>"
+      required
+    />
+  </form>
+</div>
