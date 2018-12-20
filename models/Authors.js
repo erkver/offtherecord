@@ -6,6 +6,14 @@ const AuthorSchema = new Schema({
     type: String,
     required: true
   },
+  authorEmail: {
+    type: String,
+    required: true
+  },
+  authorUsername: {
+    type: String,
+    required: true
+  },
   createdOn: {
     type: Date,
     default: Date.now
