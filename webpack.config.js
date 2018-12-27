@@ -14,10 +14,10 @@ module.exports = {
           /node_modules/
         ]
       },
-      // {
-      //   test: /\.html/,
-      //   loader: 'raw-loader'
-      // },
+      {
+        test: /\.(png|svg|img|gif)$/,
+        use: ['file-loader']
+      },
       {
         test: /\.(sass|scss)$/,
         use: [{

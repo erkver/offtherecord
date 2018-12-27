@@ -7,15 +7,24 @@ const component = () => {
   mainDiv.className = "main-div";
   const element = document.createElement('div');
   element.className = "inner-div";
-  const btn = document.createElement('button');
-  btn.className = "auth-btn"
+  const description = document.createElement('h2');
+  description.className = "description";
+  const signUpBtn = document.createElement('button');
+  signUpBtn.className = "auth-btn"
+  const loginBtn = document.createElement('button');
+  loginBtn.className = "auth-btn"
 
   element.innerHTML = _.join(['Off the Record'], ' ');
 
-  btn.innerHTML = 'Sign Up!';
-  btn.onclick = printMe;  // onclick event is bind to the original printMe function
+  description.innerHTML = "A place for music discussion, discovery, and more..."
+  signUpBtn.innerHTML = 'Sign Up!';
+  signUpBtn.onclick = printMe;  // onclick event is bind to the original printMe function
+  loginBtn.innerHTML = "Login";
 
-  element.appendChild(btn);
+
+  element.appendChild(description);
+  element.appendChild(signUpBtn);
+  element.appendChild(loginBtn);
 
   return element;
 }
