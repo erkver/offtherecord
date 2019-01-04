@@ -39,5 +39,4 @@ server.listen(5000, "localhost", () => {
 
 app.listen(port, () => {
   console.log(`Server/database running at http://localhost:${port}`);
-
-})
+});

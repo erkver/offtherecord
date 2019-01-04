@@ -7,6 +7,8 @@ const component = () => {
   mainDiv.className = "main-div";
   const element = document.createElement('div');
   element.className = "inner-div";
+  const btnDiv = document.createElement("div");
+  btnDiv.className = "btn-div";
   const description = document.createElement('h2');
   description.className = "description";
   const signUpBtn = document.createElement('button');
@@ -21,12 +23,13 @@ const component = () => {
   signUpBtn.onclick = printMe;  // onclick event is bind to the original printMe function
   loginBtn.innerHTML = "Login";
 
-
+  mainDiv.appendChild(element);
   element.appendChild(description);
-  element.appendChild(signUpBtn);
-  element.appendChild(loginBtn);
+  element.appendChild(btnDiv);
+  btnDiv.appendChild(signUpBtn);
+  btnDiv.appendChild(loginBtn);
 
-  return element;
+  return mainDiv;
 }
 
 let element = component(); // Store the element to re-render on print.js changes
