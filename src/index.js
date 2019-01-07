@@ -1,6 +1,9 @@
 import _ from 'lodash';
 import printMe from './print.js';
-import "./test.scss";
+import login from './auth.js';
+import firebaseui from "firebaseui";
+import firebase from "./firebase.js";
+import "./index.scss";
 
 const component = () => {
   const mainDiv = document.createElement('div');
@@ -11,22 +14,20 @@ const component = () => {
   btnDiv.className = "btn-div";
   const description = document.createElement('h2');
   description.className = "description";
-  const signUpBtn = document.createElement('button');
-  signUpBtn.className = "auth-btn"
   const loginBtn = document.createElement('button');
   loginBtn.className = "auth-btn"
+  const loginDiv = document.createElement("div");
+  loginDiv.id = "firebaseui-auth-container";
 
   element.innerHTML = _.join(['Off the Record'], ' ');
-
   description.innerHTML = "A place for music discussion, discovery, and more..."
-  signUpBtn.innerHTML = 'Sign Up!';
-  signUpBtn.onclick = printMe;  // onclick event is bind to the original printMe function
-  loginBtn.innerHTML = "Login";
+  loginBtn.innerHTML = "Signup/Login";
+  loginBtn.onclick = login;
 
   mainDiv.appendChild(element);
   element.appendChild(description);
   element.appendChild(btnDiv);
-  btnDiv.appendChild(signUpBtn);
+  element.appendChild(loginDiv);
   btnDiv.appendChild(loginBtn);
 
   return mainDiv;
