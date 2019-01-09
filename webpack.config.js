@@ -10,32 +10,37 @@ module.exports = {
       {
         test: /\.(html)$/,
         use: {
-          loader: 'html-loader',
+          loader: "html-loader",
           options: {
-            attrs: [':data-src']
+            attrs: [":data-src"]
           }
         }
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude : [
-          /node_modules/
-        ]
+        use: "babel-loader",
+        exclude: [/node_modules/]
+      },
+      { test: /\.ejs$/, 
+        use: ["ejs-loader"] 
       },
       {
         test: /\.(png|svg|img|gif)$/,
-        use: ['file-loader']
+        use: ["file-loader"]
       },
       {
         test: /\.(sass|scss)$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader"
-        }, {
-          loader: "sass-loader"
-        }]
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "sass-loader"
+          }
+        ]
       }
     ]
   },
@@ -43,11 +48,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Hot Module Replacement"
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new HtmlWebpackPlugin({
+      filename: "landing.ejs",
+      template: "./src/landing.ejs"
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      _: "underscore"
+    }),
   ],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
-  },
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
+  }
 };
